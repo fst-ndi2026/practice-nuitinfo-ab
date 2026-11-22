@@ -1,73 +1,66 @@
-# React + TypeScript + Vite
+# NuitInfo Starter — Nuit de l'Info 2026
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Projet de base de l'équipe pour la Nuit de l'Info 2026.
+المشروع الأساسي للفريق في مسابقة Nuit de l'Info 2026.
 
-Currently, two official plugins are available:
+🌐 **Production :** _à compléter après la connexion Vercel_
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Stack
 
-## React Compiler
+| Outil                                          | Rôle / الدور                                     |
+| ---------------------------------------------- | ------------------------------------------------ |
+| [React 19](https://react.dev)                  | Interface utilisateur / واجهة المستخدم           |
+| [TypeScript 6](https://www.typescriptlang.org) | JavaScript typé / جافاسكربت مع الأنواع           |
+| [Vite 8](https://vite.dev)                     | Serveur de dev + build / خادم التطوير والبناء    |
+| [Tailwind CSS 4](https://tailwindcss.com)      | Styles utilitaires / التنسيق                     |
+| ESLint + Prettier                              | Qualité et formatage du code / جودة وتنسيق الكود |
+| GitHub Actions                                 | CI : vérifie chaque PR / فحص تلقائي              |
+| Vercel                                         | Déploiement automatique / النشر التلقائي         |
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Démarrage rapide / البدء السريع
 
-## Expanding the ESLint configuration
+Prérequis / المتطلبات : **Node.js 24+**, **npm**, **Git**, **VS Code**.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+git clone <URL_DU_DEPOT>
+cd <NOM_DU_DEPOT>
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+Puis ouvrir / ثم افتح : http://localhost:5173
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+À l'ouverture du projet, VS Code propose d'installer les extensions recommandées (Prettier, ESLint, Tailwind CSS IntelliSense) : acceptez.
+عند فتح المشروع، يقترح VS Code تثبيت الإضافات الموصى بها: وافق.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Commandes / الأوامر
+
+| Commande               | Action                                             |
+| ---------------------- | -------------------------------------------------- |
+| `npm run dev`          | Serveur de développement avec rechargement à chaud |
+| `npm run build`        | Vérifie TypeScript puis génère `dist/`             |
+| `npm run preview`      | Sert le build de production en local               |
+| `npm run lint`         | Analyse le code avec ESLint                        |
+| `npm run format`       | Formate tout le code avec Prettier                 |
+| `npm run format:check` | Vérifie le formatage (utilisé par la CI)           |
+
+## Structure
+
 ```
+├── .github/            CI + modèle de Pull Request
+├── .vscode/            Réglages et extensions partagés
+├── public/             Fichiers statiques servis tels quels
+├── src/
+│   ├── components/     Composants React réutilisables
+│   ├── assets/         Images importées dans le code
+│   ├── App.tsx         Composant racine
+│   ├── main.tsx        Point d'entrée
+│   └── index.css       Import Tailwind + styles globaux
+├── index.html
+└── vite.config.ts      Plugins React + Tailwind
+```
+
+## Travailler en équipe / العمل الجماعي
+
+Voir **[CONTRIBUTING.md](CONTRIBUTING.md)** : une branche par tâche, Pull Request vers `main`, CI verte + 1 relecture avant merge.
+راجع **[CONTRIBUTING.md](CONTRIBUTING.md)**: فرع لكل مهمة، ثم Pull Request إلى `main`.
